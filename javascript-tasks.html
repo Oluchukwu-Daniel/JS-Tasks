@@ -1,0 +1,328 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Class 2</title>
+  </head>
+  <body>
+    <div id="output">
+      <script>
+        // Write a JavaScript program to find the most frequent item of an array.
+        // Sample array : var arr1=[3, 'a', 'a', 'a', 2, 3, 'a', 3, 'a', 2, 4, 9, 3];
+        // Sample Output : a ( 5 times )
+
+        var arr6 = [3, 'a', 'a', 'a', 2, 3, 'a', 3, 'a', 2, 4, 9, 3, 5, 5, 5, 5, 5, 5, 5];
+        var counts = [];
+        var counting = 1;
+        var index = "";
+        var index1 = "";
+        var index2 = "";
+        var index3 = [];
+        var index4 = [];
+        var index5 = "";
+        var index6 = "";
+        var max1 = "";
+
+        
+        function occurrence(arr5){
+          //arranging in ascending order 
+          var arr7 = arr5.sort().sort(function(a, b){return a - b});
+
+          for(let i = 0; i < arr7.length; i++){
+
+            if (arr7[i] === arr7[i+1]){
+
+              //getting the occurrence frequency
+              index1 = arr7.indexOf(arr7[i], 0);
+              index2 = arr7.lastIndexOf(arr7[i]);
+
+              //getting the difference in index
+              index = index2 - index1;
+              
+            }
+            //assigning the differences to an empty array, adding 1 to it because the comparison skips counting the first value
+            index3.push(index + 1);
+
+          }
+
+          console.log("bb", index3);
+
+          //finding the highest value in the new array
+          max1 = Math.max(...index3);
+          console.log("dd", max1);
+          
+          //finding the index of the highest value
+          index5 = index3.indexOf(max1);
+          console.log("ee", index5);
+          
+          //finding the corresponding value in the original array
+          index6 = arr7[index5];
+          console.log(index6);
+
+          return `${index6} (${max1})`;
+          
+        }
+
+        console.log(occurrence(arr6));
+
+        // Write a JavaScript program which accept a string as input and swap the case of each character. For example if you input 'The Quick Brown Fox' the output should be 'tHE qUICK bROWN fOX'
+
+        var upperCase= /[A-Z]/;
+        var lowerCase= /[a-z]/;
+        var inpu = 'The Quick Brown Fox';
+
+        function swapCase(x){
+
+          for(let i = 0; i < x.length; i++){
+
+            if(upperCase.test(x.charAt(i)) == true){
+
+              x = x.replace(x.charAt(i), x.charAt(i).toLowerCase());
+
+            }else if (upperCase.test(x.charAt(i)) == false){
+
+              x = x.replace(x.charAt(i), x.charAt(i).toUpperCase());
+
+            }else if (lowerCase.test(x.charAt(i)) == true){
+
+              x = x.replace(x.charAt(i), x.charAt(i).toUpperCase());
+
+            }else if (lowerCase.test(x.charAt(i)) == false){
+
+              x = x.replace(x.charAt(i), x.charAt(i).toLowerCase());
+
+            }
+          
+          }
+
+          return x;
+        }
+
+        console.log(swapCase(inpu));
+
+        // Write a JavaScript program which prints the elements of the following array.
+        // Note : Use nested for loops.
+        // Sample array : var a = [[1, 2, 1, 24], [8, 11, 9, 4], [7, 0, 7, 27], [7, 4, 28, 14], [3, 10, 26, 7]];
+        // Sample Output :
+        // "row 0"
+        // " 1"
+        // " 2"
+        // " 1"
+        // " 24"
+        // "row 1"
+        // “….”
+
+        var arr8 = [[1, 2, 1, 24], [8, 11, 9, 4], [7, 0, 7, 27], [7, 4, 28, 14], [3, 10, 26, 7]];
+        
+        // console.log(arr8.length);
+        var row = "row";
+        var rows = ""; 
+        var result = "";
+
+        function printArray(item){
+
+          for(let i = 0; i < item.length; i++){
+
+            rows = `${row} ${i}`;
+            console.log(rows);
+
+            for(let j = 0; j < item[i].length; j++){
+
+              result = item[i][j];
+              console.log(result);
+              
+            }
+            
+          }
+          
+        }
+        
+        console.log("ggg", printArray(arr8));
+        
+
+        // Write a JavaScript program to compute the sum and product of an array of integers 
+        var sum = 0;
+        var product = 1;
+
+        function arraySum(suM){
+
+          suM.map((item)=>{
+
+            sum = sum + item;
+            product = product * item;
+
+            return sum;
+            return product;
+          })
+
+          console.log(sum);
+          console.log(product);
+          
+        }
+
+        console.log(arraySum([2, 3, 4, 5, 6]));
+        
+        // Write a JavaScript program to remove duplicate items from an array (ignore case sensitivity)
+
+        var arr9 = [3, 'a', 'a', 'a', 2, 3, 'a', 3, 'a', 2, 4, 9, 3, 5, 5, 5, 5, 5, 5, 5];
+
+        var arr10 = arr9.sort().sort(function(a, b){return a - b});
+        // console.log(arr10);
+        var arr11 = [];
+
+        function dupliElimin(x){
+
+          for (let i = 0; i <= x.length; i++){
+
+            if (x[i] != x[i+1]){
+              arr11.push(x[i]);
+            }
+            
+          }
+          return x = arr11;
+        }
+        
+        console.log(dupliElimin(arr10));
+
+        // We have the following arrays 
+        // color = ["Blue ", "Green", "Red", "Orange", "Violet", "Indigo", "Yellow "];
+        // o = ["th","st","nd","rd"]
+        // Write a JavaScript program to display the colors in the following way :
+        // "1st choice is Blue ."
+        // "2nd choice is Green."
+        // "3rd choice is Red."
+        // - - - - - - - - - - - - -
+        // Note : Use ordinal numbers to tell their position.
+
+        var color = ["Blue ", "Green", "Red", "Orange", "Violet", "Indigo", "Yellow "];
+        var ordinal = ["st","nd","rd","th","th","th","th","th","th"];
+
+        function ordinalColors(color, ordinal){
+
+          color.map((item, index)=>{
+
+            console.log(`${index + 1}${ordinal[index + 1]} choice is ${item}`);
+
+          })
+
+        }
+      console.log(ordinalColors(color, ordinal));
+        
+        // There are two arrays with individual values, write a JavaScript program to compute the sum of each individual index value from the given arrays. 
+        // Sample array :
+        // array1 = [1,0,2,3,4];
+        // array2 = [3,5,6,7,8,13];
+        // Expected Output :
+        // [4, 5, 8, 10, 12, 13];
+
+        var array01 = [1,0,2,3,4];
+        var array02 = [3,5,6,7,8,13];
+        var array03 = [];
+        
+        function sumIndex(array01, array02){
+
+          array03 = array01.map((item, index)=>{
+
+            return item + array02[index];
+
+          })
+
+          return(array03);
+        }
+
+        console.log(sumIndex(array01, array02));
+
+        // Write a JavaScript program to compute the union of two arrays. 
+        // Sample Data :
+        // console.log(union([1, 2, 3], [100, 2, 1, 10]));
+        // [1, 2, 3, 10, 100]
+
+        var array03 = [1, 2, 3];
+        var array04 = [100, 2, 1, 10];
+
+        function arrUnion(array03, array04){
+
+          return array03.concat(array04);
+
+        }
+
+        console.log(arrUnion(array03, array04));
+
+        // Write a JavaScript function to find the difference of two arrays.
+        // Test Data :
+        // console.log(difference([1, 2, 3], [100, 2, 1, 10]));
+        // ["3", "10", "100"]
+        // console.log(difference([1, 2, 3, 4, 5], [1, [2], [3, [[4]]],[5,6]]));
+        // ["6"]
+        // console.log(difference([1, 2, 3], [100, 2, 1, 10]));
+        // ["3", "10", "100"]
+
+        var array05 = [1, 2, 3, 4, 5];
+        var array06 = [1, 2, 3, 4, 5, 6, 7];
+        var array07 = [];
+        var array08 = [];
+        var array09 = [];
+        var array010 =[];
+
+        function arrayDifference(array05, array06){
+
+          array07 = array05.map((item)=>{
+
+            if(array06.includes(item) == false){
+              return item;
+            }
+          })
+
+          array08 = array06.map((item)=>{
+
+            if(array05.includes(item) == false){
+              return item;
+            }
+            
+          })
+
+          array09 = array07.concat(array08);
+
+          array09.map((items) =>{
+            if (items != undefined){
+
+              array010.push(items); 
+            }
+          })
+
+          return array010;
+
+        }
+
+        console.log(arrayDifference(array05, array06));
+
+        // Write a JavaScript function to remove. 'null', '0', '""', 'false', 'undefined' and 'NaN' values from an array. 
+        // Sample array : [NaN, 0, 15, false, -22, '',undefined, 47, null]
+        // Expected result : [15, -22, 47]
+
+        
+        var array012 = [];
+        var array013 = [NaN, 0, 15, false, -22, '',undefined, 47, null];
+
+        function removeNonIntegers(array011){
+
+          array011.map((items) =>{
+
+            if (items != null && items != 0 && items != "" && items != false && items != undefined && Number.isNaN(items) != true ){
+
+              array012.push(items);
+
+            }
+          })
+
+          return array012;
+        }
+
+        console.log(removeNonIntegers(array013));
+
+      </script>
+    </div>
+  </body>
+</html>
